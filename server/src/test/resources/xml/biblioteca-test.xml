@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bibliotecas>
+    <bibliotecaA>
+        <book>
+            <libro>Harry Potter</libro>
+            <autor>J.K. Rowling</autor>
+        </book>
+    </bibliotecaA>
+</bibliotecas>
