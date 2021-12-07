@@ -14,6 +14,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LibraryServer extends UnicastRemoteObject implements RmiController {
     private final SearchBookUseCase searchBookUseCase;
@@ -26,14 +27,17 @@ public class LibraryServer extends UnicastRemoteObject implements RmiController 
     }
 
     @Override
-    public List<Book> queryBooks(String query) throws RemoteException {
+    public String queryBooks(String query) throws RemoteException {
         try {
             // Assume all queries come in z39lang
             Query translatedQuery = translateQuery(query);
             List<Book> resultados = searchBookUseCase.search(translatedQuery);
             logger.info("{} results found for query: {}", resultados.size(), query);
             logger.debug("Resultados: {}", resultados);
-            return resultados;
+            return resultados.stream().map(book -> {
+                // TODO: Use configuration values
+                return "Libro " + book.getTitle() + "|" + book.getAuthor();
+            }).collect(Collectors.joining("\n"));
         } catch (UntranslatableQueryException e) {
             throw new RemoteException(e.getMessage(), e);
         }
