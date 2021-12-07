@@ -1,4 +1,4 @@
-package org.bibliotecasmundo.server.application;
+package org.bibliotecasmundo.shared.application;
 
 import org.bibliotecasmundo.shared.application.query.Query;
 import org.bibliotecasmundo.shared.infrastructure.query.BookTitleQuery;

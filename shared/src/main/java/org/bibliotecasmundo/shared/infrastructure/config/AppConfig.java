@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.Map;
 
 public interface AppConfig {
+    String APP_NAME = "app.name";
+    String QUERY_TOKENS_TITLE = "query.tokens.title";
+    String QUERY_TOKENS_AUTHOR = "query.tokens.author";
     String getConfigParam(String paramName);
     String getConfigParam(String paramName, String defaultValue);
 

@@ -1,12 +1,7 @@
-package org.bibliotecasmundo.server.application;
+package org.bibliotecasmundo.shared.application.query;
 
 import com.google.common.collect.ImmutableMap;
 import lombok.EqualsAndHashCode;
-import org.bibliotecasmundo.server.infrastructure.config.ServerConfigConstants;
-import org.bibliotecasmundo.shared.application.query.Query;
-import org.bibliotecasmundo.shared.application.query.QueryLanguage;
-import org.bibliotecasmundo.shared.application.query.QueryParameter;
-import org.bibliotecasmundo.shared.application.query.UntranslatableQueryException;
 import org.bibliotecasmundo.shared.infrastructure.config.AppConfig;
 import org.bibliotecasmundo.shared.infrastructure.query.QueryFactory;
 
@@ -23,13 +18,13 @@ public class LibraryQueryLanguage implements QueryLanguage {
     }
 
     public static QueryLanguage buildFromConfiguration(AppConfig appConfig) {
-        return buildFromConfiguration(appConfig.getConfigParam(ServerConfigConstants.APP_NAME, "Lenguaje Biblioteca"), appConfig);
+        return buildFromConfiguration(appConfig.getConfigParam(AppConfig.APP_NAME, "Lenguaje Biblioteca"), appConfig);
     }
 
     public static QueryLanguage buildFromConfiguration(String name, AppConfig appConfig) {
         Map<QueryParameter, String> parameterMap = ImmutableMap.of(
-                QueryParameter.AUTHOR, appConfig.getConfigParam(ServerConfigConstants.QUERY_TOKENS_AUTHOR, "autor"),
-                QueryParameter.TITLE, appConfig.getConfigParam(ServerConfigConstants.QUERY_TOKENS_TITLE, "titulo")
+                QueryParameter.AUTHOR, appConfig.getConfigParam(AppConfig.QUERY_TOKENS_AUTHOR, "autor"),
+                QueryParameter.TITLE, appConfig.getConfigParam(AppConfig.QUERY_TOKENS_TITLE, "titulo")
         );
         return new LibraryQueryLanguage(name, parameterMap);
     }

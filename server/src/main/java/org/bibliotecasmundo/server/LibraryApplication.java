@@ -1,6 +1,6 @@
 package org.bibliotecasmundo.server;
 
-import org.bibliotecasmundo.server.application.LibraryQueryLanguage;
+import org.bibliotecasmundo.shared.application.query.LibraryQueryLanguage;
 import org.bibliotecasmundo.server.application.SearchBookUseCase;
 import org.bibliotecasmundo.server.infrastructure.config.ServerConfigConstants;
 import org.bibliotecasmundo.server.infrastructure.persistence.inmemory.InMemoryBookRepository;
