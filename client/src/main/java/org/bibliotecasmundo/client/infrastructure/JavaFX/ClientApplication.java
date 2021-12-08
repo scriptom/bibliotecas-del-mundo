@@ -1,11 +1,13 @@
 package org.bibliotecasmundo.client.infrastructure.JavaFX;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.bibliotecasmundo.client.infrastructure.JavaFX.Views.Searcher;
+
+import java.io.IOException;
+
 
 public class ClientApplication extends Application {
 
@@ -16,10 +18,12 @@ public class ClientApplication extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Library Searcher");
-        Searcher layout = new Searcher();
-        Scene scene = new Scene(layout,1000,800);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/views/Searcher.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root,1000,700);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<bibliotecas>
+	<biblioteca name="Biblioteca A" address="xxx.xxx.xxx.xxx" port="5000" />
+	<biblioteca name="Biblioteca B" address="xxx.xxx.xxx.xxx" port="5000" />
+	<biblioteca name="Biblioteca C" address="xxx.xxx.xxx.xxx" port="5000" />
+</bibliotecas>
