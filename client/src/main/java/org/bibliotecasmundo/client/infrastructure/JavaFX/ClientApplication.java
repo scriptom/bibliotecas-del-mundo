@@ -23,7 +23,7 @@ public class ClientApplication extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/views/Searcher.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root,1000,700);
+        Scene scene = new Scene(root, 1000, 700);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
