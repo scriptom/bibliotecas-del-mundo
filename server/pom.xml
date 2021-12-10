@@ -73,8 +73,6 @@
             <properties>
                 <profile.name>biblioteca-b</profile.name>
                 <app.name>Biblioteca B</app.name>
-                <app.port>5100</app.port>
-                <app.endpoint>biblioteca-a</app.endpoint>
                 <query.tokens.title>Buscar Título</query.tokens.title>
                 <query.tokens.author>Buscar Autor</query.tokens.author>
                 <repository.xml.path>/xml/bibliotecaB.xml</repository.xml.path>

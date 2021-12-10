@@ -1,11 +1,13 @@
 package org.bibliotecasmundo.shared.infrastructure.config.impl;
 
+import lombok.ToString;
 import org.bibliotecasmundo.shared.infrastructure.config.AppConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
+@ToString(exclude = "logger")
 public class MapAppConfig implements AppConfig {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private final Map<String, String> config;

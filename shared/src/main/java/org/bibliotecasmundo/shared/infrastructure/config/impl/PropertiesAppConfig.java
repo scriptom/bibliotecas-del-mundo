@@ -1,5 +1,6 @@
 package org.bibliotecasmundo.shared.infrastructure.config.impl;
 
+import lombok.ToString;
 import org.bibliotecasmundo.shared.infrastructure.config.AppConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Properties;
 
+@ToString(exclude = "logger")
 public class PropertiesAppConfig implements AppConfig {
     private final Properties properties;
     private final Logger logger = LoggerFactory.getLogger(getClass());

@@ -30,7 +30,8 @@ public class LibraryServer extends UnicastRemoteObject implements RmiController 
         try {
             // Assume all queries come in z39lang
             Query translatedQuery = translateQuery(query);
-            logger.info("Received query: {} from host {}", translatedQuery.getQueryString(), getClientHost() );
+            logger.info("Received query: {} from host {}", query, getClientHost() );
+            logger.info("Translated query: {}", translatedQuery.getQueryString());
             List<Book> resultados = searchBookUseCase.search(translatedQuery);
             logger.info("{} results found for query: {}", resultados.size(), translatedQuery.getQueryString());
             logger.debug("Resultados: {}", resultados);

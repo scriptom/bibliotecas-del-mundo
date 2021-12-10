@@ -39,6 +39,7 @@ public class LibraryApplication {
     public static void main(String[] args) {
         try {
             AppConfig config = AppConfig.createFromPropertiesFile(SERVER_PROPERTIES_PATH);
+            System.setProperty("java.rmi.server.hostname", config.getConfigParam(ServerConfigConstants.HOST_ADDRESS));
             BookRepository bookRepository = buildBookRepository(config);
             SearchBookUseCase searchBookUseCase = new LocalSearchBookSearchService(bookRepository);
             Language language = LibraryLanguage.buildFromConfiguration(config);
@@ -52,10 +53,9 @@ public class LibraryApplication {
 
     public void start() throws RemoteException {
         logger.info("Starting library server");
-        logger.debug("Configuration: {}", appConfig);
+        logger.info("Configuration: {}", appConfig);
         final int port = Integer.parseInt(appConfig.getConfigParam(ServerConfigConstants.APP_PORT, "5000"));
         final String endpoint = appConfig.getConfigParam(ServerConfigConstants.APP_ENDPOINT, "search");
-        System.setProperty("java.rmi.server.hostname", appConfig.getConfigParam(ServerConfigConstants.HOST_ADDRESS));
         libraryServer.register(port, endpoint);
         logger.info("Server started on port {}", port);
     }

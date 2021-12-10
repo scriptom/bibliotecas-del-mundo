@@ -23,9 +23,13 @@ public class RmiSearchInLibraryUseCase implements SearchInLibraryUseCase {
     @Override
     public List<Book> queryInLibrary(Query query, Library library) {
         try {
-            RmiController controller = (RmiController) Naming.lookup(String.format("rmi://%s:%d/search", library.getAddress().getValue(), library.getPort().getValue()));
+            String url = String.format("rmi://%s:%d/search", library.getAddress().getValue(), library.getPort().getValue());
+            logger.info("Resolved url: {} for library {}", url, library.getName().getValue());
+            RmiController controller = (RmiController) Naming.lookup(url);
             logger.info("Searching {} in library {} on address {}", query.getQueryString(), library.getName().getValue(), library.getAddress().getValue());
-            final String s = controller.queryBooks(query.translateToCommonLanguage());
+            String translatedQuery = query.translateToCommonLanguage();
+            logger.info("Translated query: {}", translatedQuery);
+            final String s = controller.queryBooks(translatedQuery);
             final List<Book> results = parseResponse(s, query.getLanguage());
             logger.info("Found {} results", results.size());
             return results;
