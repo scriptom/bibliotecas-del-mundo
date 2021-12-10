@@ -8,7 +8,7 @@ public class UntranslatableQueryException extends RuntimeException {
         super(message);
     }
 
-    public UntranslatableQueryException(String message, QueryLanguage language) {
+    public UntranslatableQueryException(String message, Language language) {
         super(message + "\nQueryLanguage=" + language.getCommonName());
     }
 }

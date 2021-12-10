@@ -22,6 +22,129 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <!-- General application properties-->
+        <app.name>Library Client</app.name>
+        <profile.name>default</profile.name>
+        <!-- Query properties. By default we build Z39 which is the common one -->
+        <query.tokens.title>Get Book</query.tokens.title>
+        <query.tokens.author>Get Author</query.tokens.author>
+        <hosts.path>/xml/Bibliotecas.xml</hosts.path>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>biblioteca-a</id>
+            <activation>
+                <property>
+                    <name>template</name>
+                    <value>biblioteca-a</value>
+                </property>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <profile.name>biblioteca-a</profile.name>
+                <app.name>Biblioteca A</app.name>
+                <query.tokens.title>Pedir Libro</query.tokens.title>
+                <query.tokens.author>Pedir Autor</query.tokens.author>
+                <response.token>Libro</response.token>
+            </properties>
+        </profile>
+        <profile>
+            <id>biblioteca-b</id>
+            <activation>
+                <property>
+                    <name>template</name>
+                    <value>biblioteca-b</value>
+                </property>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <profile.name>biblioteca-b</profile.name>
+                <app.name>Biblioteca B</app.name>
+                <query.tokens.title>Buscar Título</query.tokens.title>
+                <query.tokens.author>Buscar Autor</query.tokens.author>
+                <response.token>Titulo</response.token>
+            </properties>
+        </profile>
+        <profile>
+            <id>biblioteca-c</id>
+            <activation>
+                <property>
+                    <name>template</name>
+                    <value>biblioteca-c</value>
+                </property>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <profile.name>biblioteca-c</profile.name>
+                <app.name>Biblioteca C</app.name>
+                <query.tokens.title>Encontrar Vol</query.tokens.title>
+                <query.tokens.author>Encontrar Autor</query.tokens.author>
+                <response.token>Vol</response.token>
+            </properties>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>write-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <outputFile>${project.build.outputDirectory}/app.client.properties</outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>8.8.1</version>
+                <configuration>
+                    <mainClass>org.bibliotecasmundo.client.infrastructure.JavaFX.ClientApplication</mainClass>
+                    <bundler>EXE</bundler>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <finalName>${project.artifactId}-${project.version}-${profile.name}</finalName>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.bibliotecasmundo.client.infrastructure.JavaFX.ClientApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

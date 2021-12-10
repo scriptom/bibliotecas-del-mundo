@@ -10,7 +10,7 @@
     </extension>
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Compile shared library" run_configuration_type="MavenRunConfiguration" />
-      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/server/pom.xml" goal="clean install &quot;-Dtemplate=biblioteca-a&quot;" />
+      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/server/pom.xml" goal="clean compile install &quot;-Dtemplate=biblioteca-a&quot;" />
     </method>
   </configuration>
 </component>

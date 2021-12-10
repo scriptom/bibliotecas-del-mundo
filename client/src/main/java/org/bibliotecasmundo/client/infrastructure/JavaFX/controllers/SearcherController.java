@@ -1,6 +1,5 @@
 package org.bibliotecasmundo.client.infrastructure.JavaFX.controllers;
 
-import com.google.common.collect.ImmutableMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,132 +7,136 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.bibliotecasmundo.client.application.useCases.searchInLibrary;
-import org.bibliotecasmundo.client.application.xml.mapper.xmlMapper;
-import org.bibliotecasmundo.client.application.xml.modelos.libraryInfo;
-import org.bibliotecasmundo.client.domain.book;
-import org.bibliotecasmundo.client.infrastructure.adapters.libraryRepository;
-import org.bibliotecasmundo.shared.application.query.LibraryQueryLanguage;
+import javafx.util.StringConverter;
+import org.bibliotecasmundo.client.application.useCases.SearchInLibraryUseCase;
+import org.bibliotecasmundo.client.domain.library.Library;
+import org.bibliotecasmundo.client.infrastructure.model.SimpleBook;
+import org.bibliotecasmundo.shared.application.query.Language;
 import org.bibliotecasmundo.shared.application.query.Query;
-import org.bibliotecasmundo.shared.infrastructure.config.AppConfig;
+import org.bibliotecasmundo.shared.domain.book.Book;
+import org.bibliotecasmundo.shared.infrastructure.query.QueryFactory;
+import org.bibliotecasmundo.shared.infrastructure.tools.EntityMapper;
+import org.bibliotecasmundo.shared.infrastructure.tools.xml.XmlUnmarshaller;
 
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class SearcherController implements Initializable {
-
+public class SearcherController implements Initializable, EntityMapper<SimpleBook, Book> {
+    private final static String TITLE_TYPE = "Title";
+    private final static String AUTHOR_TYPE = "Author";
     @FXML
     private TextField keywordsField;
     @FXML
-    private ComboBox searchTypeField;
+    private ComboBox<String> searchTypeField;
     @FXML
-    private ComboBox libraryField;
+    private ComboBox<Library> libraryField;
     @FXML
-    private TableView table;
+    private TableView<SimpleBook> table;
 
-    private searchInLibrary adapter;
+    private final String filename;
 
-    private xmlMapper xmlMapp;
+    private final SearchInLibraryUseCase searcher;
 
-    private libraryInfo[] libraries;
+    private final XmlUnmarshaller<List<Library>> unmarshaller;
 
-    private LibraryQueryLanguage queryBuilder;
+    private final Language language;
+
+    public SearcherController(String filename, SearchInLibraryUseCase searcher, XmlUnmarshaller<List<Library>> unmarshaller, Language language) {
+        this.filename = filename;
+        this.searcher = searcher;
+        this.unmarshaller = unmarshaller;
+        this.language = language;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //Descomentar cuando se haga la funcion de RMI
-        //adapter = new libraryRepository();
-        adapter = new libraryRepository();
-        xmlMapp = new xmlMapper(getClass().getClassLoader().getResource("xml/Bibliotecas.xml").getPath());
-
         //Cargo la lista de types de busqueda
-        ObservableList<String> types = FXCollections.observableArrayList("Title", "Author");
+        ObservableList<String> types = FXCollections.observableArrayList(TITLE_TYPE, AUTHOR_TYPE);
         searchTypeField.setItems(types);
 
-        //Cargo las librerias con sus respectivos nombre, puerto y direccion
-        libraries = xmlMapp.readFile();
-        //Como no puedo mostrar el nombre facilmente, hago un array con nombres y lo paso
-        String[] names = new String[libraries.length + 1];
-            names[libraries.length] = "Local";
-        for(int i = 0; i < libraries.length;i++){
-            names[i] = libraries[i].getNombre();
+        // Extract XML body from filename
+        try {
+            String xmlBody = readLibraryXmlFile();
+            //Cargo las librerías con sus respectivos nombre, puerto y dirección
+            List<Library> libraries = unmarshaller.fromXml(xmlBody);
+            //Cargo la lista de bibliotecas disponibles
+            libraryField.setItems(FXCollections.observableArrayList(libraries));
+            // Set cell factory for library combo box
+            libraryField.setCellFactory(param -> new LibraryListCell());
+            libraryField.setButtonCell(new LibraryListCell());
+            libraryField.setConverter(new LibraryStringConverter(libraries));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        //Cargo la lista de bibliotecas disponibles
-        ObservableList<String> librarys = FXCollections.observableArrayList(names);;
-        libraryField.setItems(librarys);
 
-        setTableColumn();
-
-        //Inicializo el traductor de querys
-        queryBuilder = (LibraryQueryLanguage) LibraryQueryLanguage.buildFromConfiguration("Biblioteca Ingles", AppConfig.createFromMap(ImmutableMap.<String, String>builder()
-                .put(AppConfig.QUERY_TOKENS_TITLE, "Get Title")
-                .put(AppConfig.QUERY_TOKENS_AUTHOR, "Get Author")
-                .build()));
+        initTableColumns();
     }
 
-    private void setTableColumn(){
+    private String readLibraryXmlFile() throws IOException {
+        InputStream is = Objects.requireNonNull(getClass().getResourceAsStream(filename));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        while ((line = br.readLine()) != null) {
+            sb.append(line);
+        }
+        br.close();
+        return sb.toString();
+    }
+
+    private void initTableColumns() {
         //Creo la columna de la tabla
-        TableColumn<book, String> column1 = new TableColumn<>("Nombre");
-        column1.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        column1.prefWidthProperty().bind(table.widthProperty().multiply(1));
+        TableColumn<SimpleBook, String> column1 = new TableColumn<>("Nombre");
+        column1.setCellValueFactory(new PropertyValueFactory<>("title"));
+        column1.prefWidthProperty().bind(table.widthProperty().multiply(0.5));
+
+        TableColumn<SimpleBook, String> column2 = new TableColumn<>("Autor");
+        column2.setCellValueFactory(new PropertyValueFactory<>("author"));
+        column2.prefWidthProperty().bind(table.widthProperty().multiply(0.5));
 
         table.getColumns().add(column1);
+        table.getColumns().add(column2);
     }
 
     @FXML
     private void submit(ActionEvent event) {
-
-        if(keywordsField.getText().isEmpty()) {
+        if (keywordsField.getText().isEmpty()) {
             // create a alert
-            showAlert(Alert.AlertType.ERROR,  "Error en la busqueda", "No se introdujo ninguna palabra clave");
-            System.out.println('a');
+            showAlert(Alert.AlertType.ERROR, "Error en la busqueda", "No se introdujo ninguna palabra clave");
             return;
         }
 
-        if (searchTypeField.getValue() == null){
-            showAlert(Alert.AlertType.ERROR,  "Error en la busqueda", "No se selecciono ningún tipo de busqueda");
-            System.out.println('b');
+        if (searchTypeField.getValue() == null) {
+            showAlert(Alert.AlertType.ERROR, "Error en la busqueda", "No se selecciono ningún tipo de búsqueda");
             return;
         }
 
         String keyword = keywordsField.getText();
-
-        String searchType = searchTypeField.getValue().toString();
-        libraryInfo libreriaObjetivo = searchLibrary(libraryField.getValue().toString());
-
-        String commonLeng = "Get " + searchType + " " + keyword;
-        Query query = queryBuilder.translateFromCommonLanguage(commonLeng);
-
-        //TODO: en data debe almacenarse la respuesta, una vez este implementada
-//        String data = queryBuilder.translateToCommonLanguage(adapter.searchQuery(query));
-        String data = "Title Jose";
-        String[] result = data.split("\n");
-
-        book[] books = new book[result.length];
-        for(int i = 0 ; i < result.length ; i++){
-            books[i] = new book(result[i].replace("Title ",""));
+        String searchType = searchTypeField.getValue();
+        Library targetLibrary = libraryField.getValue();
+        Query query = null;
+        if (TITLE_TYPE.equals(searchType)) {
+            query = QueryFactory.createTitleQuery(language, keyword);
+        } else if (AUTHOR_TYPE.equals(searchType)) {
+            query = QueryFactory.createAuthorQuery(language, keyword);
         }
 
-        if (table.getItems() != null){
+        if (query != null) {
+            List<Book> books = searcher.queryInLibrary(query, targetLibrary);
+            List<SimpleBook> simpleBooks = mapList(books);
             table.getItems().clear();
+            table.getItems().addAll(simpleBooks);
         }
-        table.getItems().addAll(books);
     }
 
-    private libraryInfo searchLibrary (String nombre){
-        for(int i = 0; i < libraries.length; i++){
-            if (nombre == libraries[i].getNombre())
-                return libraries[i];
-        }
-        //TODO: Revisar esto cuando es local
-        return new libraryInfo("local","127.0.0.1","5000");
-    }
-
-
-    private void showAlert(Alert.AlertType alertType,  String title, String message) {
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
@@ -141,4 +144,39 @@ public class SearcherController implements Initializable {
         alert.show();
     }
 
+    @Override
+    public SimpleBook map(Book source) {
+        return new SimpleBook(source.getTitle().getValue(), source.getAuthor().getValue());
+    }
+
+    private static class LibraryListCell extends ListCell<Library> {
+        @Override
+        protected void updateItem(Library item, boolean empty) {
+            super.updateItem(item, empty);
+            if (item == null || empty) {
+                setText(null);
+            } else {
+                setText(item.getName().getValue());
+            }
+        }
+    }
+
+    private static class LibraryStringConverter extends StringConverter<Library> {
+        private final List<Library> libraries;
+
+        public LibraryStringConverter(List<Library> libraries) {
+            this.libraries = libraries;
+        }
+
+        @Override
+        public String toString(Library object) {
+            return object != null ? object.getName().getValue() : "";
+        }
+
+        @Override
+        public Library fromString(String string) {
+            return libraries.stream().filter(l -> l.getName().getValue().equals(string))
+                    .findFirst().orElseThrow(IllegalArgumentException::new);
+        }
+    }
 }

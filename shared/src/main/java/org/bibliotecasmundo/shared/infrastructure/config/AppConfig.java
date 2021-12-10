@@ -10,6 +10,8 @@ public interface AppConfig {
     String APP_NAME = "app.name";
     String QUERY_TOKENS_TITLE = "query.tokens.title";
     String QUERY_TOKENS_AUTHOR = "query.tokens.author";
+    String RESPONSE_TOKEN = "response.token";
+
     String getConfigParam(String paramName);
     String getConfigParam(String paramName, String defaultValue);
 

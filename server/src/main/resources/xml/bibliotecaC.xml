@@ -2,8 +2,204 @@
 <bibliotecas>
 	<bibliotecaC>
 		<book>
-			<vol></vol>
-			<autor></autor>
+			<vol>No Highway in the Sky</vol>
+			<autor>Olenolin Anselmi</autor>
+		</book>
+		<book>
+			<vol>Last Temptation of Christ, The</vol>
+			<autor>Trefor Conyer</autor>
+		</book>
+		<book>
+			<vol>Man of Aran</vol>
+			<autor>Krystle Raddin</autor>
+		</book>
+		<book>
+			<vol>Chhoti Si Baat</vol>
+			<autor>Dalton Monkhouse</autor>
+		</book>
+		<book>
+			<vol>D2: The Mighty Ducks</vol>
+			<autor>Kirsten Greenhowe</autor>
+		</book>
+		<book>
+			<vol>Civil War, The</vol>
+			<autor>Ruttger Ciccarelli</autor>
+		</book>
+		<book>
+			<vol>For Richer or Poorer</vol>
+			<autor>Devland Alldis</autor>
+		</book>
+		<book>
+			<vol>The Real Glory</vol>
+			<autor>Stevana Reen</autor>
+		</book>
+		<book>
+			<vol>Stan Helsing</vol>
+			<autor>Edy Wigzell</autor>
+		</book>
+		<book>
+			<vol>Panic in the Streets</vol>
+			<autor>Ashby Ledwich</autor>
+		</book>
+		<book>
+			<vol>Corner Gas: The Movie</vol>
+			<autor>Erma Maskrey</autor>
+		</book>
+		<book>
+			<vol>In China They Eat Dogs (I Kina spiser de hunde)</vol>
+			<autor>Dorothea Greatland</autor>
+		</book>
+		<book>
+			<vol>Collector, The (Komornik)</vol>
+			<autor>Taryn Brouncker</autor>
+		</book>
+		<book>
+			<vol>Spin (You Are Here)</vol>
+			<autor>Sheela Chainey</autor>
+		</book>
+		<book>
+			<vol>Jack Reacher</vol>
+			<autor>Carney Bonsey</autor>
+		</book>
+		<book>
+			<vol>Throw Down (Yau doh lung fu bong)</vol>
+			<autor>Abigale Schuck</autor>
+		</book>
+		<book>
+			<vol>Out of Towners, The</vol>
+			<autor>Winne Godbold</autor>
+		</book>
+		<book>
+			<vol>Goodbye Again</vol>
+			<autor>Ody Whymark</autor>
+		</book>
+		<book>
+			<vol>Humanité, L'</vol>
+			<autor>Honor Trawin</autor>
+		</book>
+		<book>
+			<vol>Loose Change 9/11: An American Coup</vol>
+			<autor>Tobye Lufkin</autor>
+		</book>
+		<book>
+			<vol>Common Places (a.k.a. Common Ground) (Lugares comunes)</vol>
+			<autor>Brod Corkan</autor>
+		</book>
+		<book>
+			<vol>Velocity of Gary, The</vol>
+			<autor>Orin Athy</autor>
+		</book>
+		<book>
+			<vol>Agenda: Grinding America Down</vol>
+			<autor>Salmon Dagon</autor>
+		</book>
+		<book>
+			<vol>Yu-Gi-Oh!: Bonds Beyond Time (Gekijouban Yuugiou: Chouyuugou! Jikuu o koeta kizuna)</vol>
+			<autor>Dominic Napier</autor>
+		</book>
+		<book>
+			<vol>Mr Bones 2: Back from the Past</vol>
+			<autor>Pearl Gravet</autor>
+		</book>
+		<book>
+			<vol>Brother (Brat)</vol>
+			<autor>Thedrick Mazin</autor>
+		</book>
+		<book>
+			<vol>Dark Habits (Entre tinieblas)</vol>
+			<autor>Valentine Simoncelli</autor>
+		</book>
+		<book>
+			<vol>Obsession</vol>
+			<autor>Kimberley St. Quintin</autor>
+		</book>
+		<book>
+			<vol>Bad Boy (Story of Danny Lester, The)</vol>
+			<autor>Mal Wigfall</autor>
+		</book>
+		<book>
+			<vol>Ring Two, The</vol>
+			<autor>Wes Sloegrave</autor>
+		</book>
+		<book>
+			<vol>Eight Miles High (Das wilde Leben)</vol>
+			<autor>Marmaduke Futter</autor>
+		</book>
+		<book>
+			<vol>Our Nixon</vol>
+			<autor>Richmond Leatherbarrow</autor>
+		</book>
+		<book>
+			<vol>Pavement: Slow Century</vol>
+			<autor>Grata McGillacoell</autor>
+		</book>
+		<book>
+			<vol>Slaves to the Underground</vol>
+			<autor>Shurwood Noller</autor>
+		</book>
+		<book>
+			<vol>Cement Garden, The</vol>
+			<autor>Chickie Lomansey</autor>
+		</book>
+		<book>
+			<vol>TV Set, The</vol>
+			<autor>Godiva McAvaddy</autor>
+		</book>
+		<book>
+			<vol>Angel's Egg (Tenshi no tamago)</vol>
+			<autor>Neal Barenski</autor>
+		</book>
+		<book>
+			<vol>Beyond the Law</vol>
+			<autor>Nedi Barthel</autor>
+		</book>
+		<book>
+			<vol>Shall We Dance</vol>
+			<autor>Billi Hirsthouse</autor>
+		</book>
+		<book>
+			<vol>Double Confession</vol>
+			<autor>Frasier Gannaway</autor>
+		</book>
+		<book>
+			<vol>Bangkok Dangerous</vol>
+			<autor>Jephthah Maymond</autor>
+		</book>
+		<book>
+			<vol>Awake</vol>
+			<autor>Ramon Blackburne</autor>
+		</book>
+		<book>
+			<vol>Pax Americana and the Weaponization of Space</vol>
+			<autor>Earvin Holworth</autor>
+		</book>
+		<book>
+			<vol>Love and a Bullet</vol>
+			<autor>Liana Boyce</autor>
+		</book>
+		<book>
+			<vol>Second Honeymoon</vol>
+			<autor>Glynda Hurran</autor>
+		</book>
+		<book>
+			<vol>Best Intentions, The (Den goda viljan)</vol>
+			<autor>Wenonah McKea</autor>
+		</book>
+		<book>
+			<vol>Three Monkeys (Üç maymun)</vol>
+			<autor>Christean Dancey</autor>
+		</book>
+		<book>
+			<vol>Z Channel: A Magnificent Obsession</vol>
+			<autor>Myrtle Briiginshaw</autor>
+		</book>
+		<book>
+			<vol>Beautiful Person, The (La belle personne)</vol>
+			<autor>Marylinda Cavozzi</autor>
+		</book>
+		<book>
+			<vol>Soylent Green</vol>
+			<autor>Malynda Halkyard</autor>
 		</book>
 	</bibliotecaC>
 </bibliotecas>

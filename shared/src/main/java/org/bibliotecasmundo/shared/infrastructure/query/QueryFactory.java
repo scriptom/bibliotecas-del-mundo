@@ -3,7 +3,7 @@ package org.bibliotecasmundo.shared.infrastructure.query;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.bibliotecasmundo.shared.application.query.Query;
-import org.bibliotecasmundo.shared.application.query.QueryLanguage;
+import org.bibliotecasmundo.shared.application.query.Language;
 import org.bibliotecasmundo.shared.application.query.QueryParameter;
 import org.bibliotecasmundo.shared.application.query.UntranslatableQueryException;
 
@@ -12,7 +12,13 @@ import java.util.regex.Pattern;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class QueryFactory {
-    public static Query parseFromLanguage(QueryLanguage language, String query) {
+    public static Query createAuthorQuery(Language language, String author) {
+        return new AuthorQuery(author, language);
+    }
+    public static Query createTitleQuery(Language language, String title) {
+        return new BookTitleQuery(title, language);
+    }
+    public static Query parseFromLanguage(Language language, String query) {
         Pattern authorRegex = buildRegexForAuthorQuery(language);
         Pattern titleRegex = buildRegexForTitleQuery(language);
 
@@ -36,11 +42,11 @@ public final class QueryFactory {
         throw new UntranslatableQueryException(query);
     }
 
-    private static Pattern buildRegexForAuthorQuery(QueryLanguage language) {
+    private static Pattern buildRegexForAuthorQuery(Language language) {
         return Pattern.compile("^" + language.getParameterName(QueryParameter.AUTHOR) + " (.*)$");
     }
 
-    private static Pattern buildRegexForTitleQuery(QueryLanguage language) {
+    private static Pattern buildRegexForTitleQuery(Language language) {
         return Pattern.compile("^" + language.getParameterName(QueryParameter.TITLE) + " (.*)$");
     }
 }

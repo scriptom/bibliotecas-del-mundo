@@ -25,7 +25,7 @@
         <!-- General application properties-->
         <app.name>Library Server</app.name>
         <app.port>5000</app.port>
-        <app.endpoint>LibraryService</app.endpoint>
+        <app.endpoint>search</app.endpoint>
 
         <!-- Query properties. By default we build Z39 which is the common one -->
         <query.tokens.title>Get Book</query.tokens.title>
@@ -52,11 +52,13 @@
                 <profile.name>biblioteca-a</profile.name>
                 <app.name>Biblioteca A</app.name>
                 <query.tokens.title>Pedir Libro</query.tokens.title>
-                <query.tokens.title>Pedir Autor</query.tokens.title>
+                <query.tokens.author>Pedir Autor</query.tokens.author>
                 <repository.xml.path>/xml/bibliotecaA.xml</repository.xml.path>
                 <repository.xml.root.tag>bibliotecaA</repository.xml.root.tag>
                 <repository.xml.title.tag>libro</repository.xml.title.tag>
                 <repository.xml.author.tag>autor</repository.xml.author.tag>
+                <response.token>Libro</response.token>
+                <host.address>172.30.91.53</host.address>
             </properties>
         </profile>
         <profile>
@@ -74,13 +76,38 @@
                 <app.port>5100</app.port>
                 <app.endpoint>biblioteca-a</app.endpoint>
                 <query.tokens.title>Buscar Título</query.tokens.title>
-                <token.autor>Buscar Autor</token.autor>
-                <biblioteca.xml.repositorio>/xml/bibliotecaB.xml</biblioteca.xml.repositorio>
-                <biblioteca.xml.nombre>bibliotecaB</biblioteca.xml.nombre>
-                <biblioteca.xml.titulo>titulo</biblioteca.xml.titulo>
-                <biblioteca.xml.autor>autor</biblioteca.xml.autor>
+                <query.tokens.author>Buscar Autor</query.tokens.author>
+                <repository.xml.path>/xml/bibliotecaB.xml</repository.xml.path>
+                <repository.xml.root.tag>bibliotecaB</repository.xml.root.tag>
+                <repository.xml.title.tag>titulo</repository.xml.title.tag>
+                <repository.xml.author.tag>autor</repository.xml.author.tag>
+                <response.token>Titulo</response.token>
+                <host.address>172.30.91.51</host.address>
             </properties>
         </profile>
+        <profile>
+            <id>biblioteca-c</id>
+            <activation>
+                <property>
+                    <name>template</name>
+                    <value>biblioteca-c</value>
+                </property>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <profile.name>biblioteca-c</profile.name>
+                <app.name>Biblioteca C</app.name>
+                <query.tokens.title>Encontrar Vol</query.tokens.title>
+                <query.tokens.author>Encontrar Autor</query.tokens.author>
+                <repository.xml.path>/xml/bibliotecaC.xml</repository.xml.path>
+                <repository.xml.root.tag>bibliotecaC</repository.xml.root.tag>
+                <repository.xml.title.tag>vol</repository.xml.title.tag>
+                <repository.xml.author.tag>autor</repository.xml.author.tag>
+                <response.token>Vol</response.token>
+                <host.address>172.30.91.54</host.address>
+            </properties>
+        </profile>
+
     </profiles>
     <build>
         <resources>
@@ -89,6 +116,7 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

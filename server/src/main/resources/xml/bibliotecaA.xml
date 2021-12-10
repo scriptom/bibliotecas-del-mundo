@@ -2,8 +2,204 @@
 <bibliotecas>
 	<bibliotecaA>
 		<book>
-			<libro></libro>
-			<autor></autor>
+			<libro>To the Devil a Daughter</libro>
+			<autor>Arlana Faltin</autor>
+		</book>
+		<book>
+			<libro>Casualties of War</libro>
+			<autor>Korrie Pickavant</autor>
+		</book>
+		<book>
+			<libro>When We Leave (Die Fremde)</libro>
+			<autor>Mano Coulthard</autor>
+		</book>
+		<book>
+			<libro>Angel Eyes</libro>
+			<autor>Mollee Ridpath</autor>
+		</book>
+		<book>
+			<libro>Ungentlemanly Act, An</libro>
+			<autor>Shadow Marthen</autor>
+		</book>
+		<book>
+			<libro>Karate Kid, Part II, The</libro>
+			<autor>Hallie Standering</autor>
+		</book>
+		<book>
+			<libro>In Football We Trust</libro>
+			<autor>Cayla Lamers</autor>
+		</book>
+		<book>
+			<libro>Bangkok Dangerous</libro>
+			<autor>Selma Fost</autor>
+		</book>
+		<book>
+			<libro>Katatsumori</libro>
+			<autor>Shannon Tasseler</autor>
+		</book>
+		<book>
+			<libro>Le printemps, l'automne et l'amour</libro>
+			<autor>Cecil Ciccotto</autor>
+		</book>
+		<book>
+			<libro>Song of the Sea</libro>
+			<autor>Hendrika Gittoes</autor>
+		</book>
+		<book>
+			<libro>Different from You and Me (Anders als du und ich) </libro>
+			<autor>Vince Wychard</autor>
+		</book>
+		<book>
+			<libro>Chaos Theory</libro>
+			<autor>Nevile Whitehall</autor>
+		</book>
+		<book>
+			<libro>The Fabulous Baron Munchausen</libro>
+			<autor>Lanna Novakovic</autor>
+		</book>
+		<book>
+			<libro>Man Bites Dog (C'est arrivé près de chez vous)</libro>
+			<autor>Leonhard Bartosek</autor>
+		</book>
+		<book>
+			<libro>Red Doors</libro>
+			<autor>Loy Acome</autor>
+		</book>
+		<book>
+			<libro>Magic Christian, The</libro>
+			<autor>Filbert Payley</autor>
+		</book>
+		<book>
+			<libro>Stay</libro>
+			<autor>Kiel Purbrick</autor>
+		</book>
+		<book>
+			<libro>Pornography (Pornografia)</libro>
+			<autor>Ardelia Humberstone</autor>
+		</book>
+		<book>
+			<libro>New Daughter, The</libro>
+			<autor>Hoebart Fake</autor>
+		</book>
+		<book>
+			<libro>Winter Soldier</libro>
+			<autor>Roana Claricoates</autor>
+		</book>
+		<book>
+			<libro>We Cause Scenes</libro>
+			<autor>Sapphire Roller</autor>
+		</book>
+		<book>
+			<libro>Lantana</libro>
+			<autor>Terrance Spragge</autor>
+		</book>
+		<book>
+			<libro>Background to Danger</libro>
+			<autor>Ninette Masdin</autor>
+		</book>
+		<book>
+			<libro>Don't Go Breaking My Heart (Daan gyun naam yu)</libro>
+			<autor>Ginger Lutz</autor>
+		</book>
+		<book>
+			<libro>Last of the Mohicans, The</libro>
+			<autor>Randy Bardwell</autor>
+		</book>
+		<book>
+			<libro>Ong-Bak: The Thai Warrior (Ong Bak)</libro>
+			<autor>Gunilla Sextone</autor>
+		</book>
+		<book>
+			<libro>Hondo</libro>
+			<autor>Haily McCaffery</autor>
+		</book>
+		<book>
+			<libro>Brave</libro>
+			<autor>Elie Padly</autor>
+		</book>
+		<book>
+			<libro>New Year's Eve</libro>
+			<autor>Riobard Tatnell</autor>
+		</book>
+		<book>
+			<libro>Fraulein (Das Fräulein) </libro>
+			<autor>Blaine Dowley</autor>
+		</book>
+		<book>
+			<libro>Siddhartha</libro>
+			<autor>Anatole Brauner</autor>
+		</book>
+		<book>
+			<libro>Dunce Class on Vacation, The (Hababam sinifi tatilde)</libro>
+			<autor>Fionnula Lempertz</autor>
+		</book>
+		<book>
+			<libro>Tobacco Road</libro>
+			<autor>Darell Mourbey</autor>
+		</book>
+		<book>
+			<libro>Ménage (Tenue de soirée)</libro>
+			<autor>Maury Keppin</autor>
+		</book>
+		<book>
+			<libro>Sign of Four, The</libro>
+			<autor>Abbey Stennes</autor>
+		</book>
+		<book>
+			<libro>Blue Light, The (Blaue Licht, Das)</libro>
+			<autor>Jeralee Roark</autor>
+		</book>
+		<book>
+			<libro>Prophecy, The</libro>
+			<autor>Juan Minget</autor>
+		</book>
+		<book>
+			<libro>Toy Story Toons: Partysaurus Rex</libro>
+			<autor>Parker Martinets</autor>
+		</book>
+		<book>
+			<libro>Bear's Kiss</libro>
+			<autor>Britt Van Velde</autor>
+		</book>
+		<book>
+			<libro>High Risk</libro>
+			<autor>Arleyne Cancutt</autor>
+		</book>
+		<book>
+			<libro>Synecdoche, New York</libro>
+			<autor>Aidan Blaschke</autor>
+		</book>
+		<book>
+			<libro>For the Bible Tells Me So</libro>
+			<autor>George Durning</autor>
+		</book>
+		<book>
+			<libro>Pink Ribbons, Inc.</libro>
+			<autor>Phyllida Trigg</autor>
+		</book>
+		<book>
+			<libro>Sound City</libro>
+			<autor>Skippy Casterot</autor>
+		</book>
+		<book>
+			<libro>Just Friends</libro>
+			<autor>Belita Deeble</autor>
+		</book>
+		<book>
+			<libro>Joneses, The</libro>
+			<autor>Marne Chaves</autor>
+		</book>
+		<book>
+			<libro>TINY: A Story About Living Small</libro>
+			<autor>Hillel Romeril</autor>
+		</book>
+		<book>
+			<libro>Rodan (Sora no daikaijû Radon)</libro>
+			<autor>Lamond Edgeworth</autor>
+		</book>
+		<book>
+			<libro>Railway Man, The</libro>
+			<autor>Florinda Durbridge</autor>
 		</book>
 	</bibliotecaA>
 </bibliotecas>

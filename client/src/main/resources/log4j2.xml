@@ -1,0 +1,20 @@
+<Configuration strict="true"
+               status="${log.level}" name="basic" packages="org.bibliotecasmundo">
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        </Console>
+        <File name="fileLogger" immediateFlush="true" fileName="client-${profile.name}.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="${log.level}">
+            <AppenderRef ref="stdout"/>
+        </Root>
+        <Logger name="org.bibliotecasmundo.client.infrastructure.rmi.RmiSearchInLibraryUseCase"  level="${log.level}">
+            <AppenderRef ref="fileLogger" />
+        </Logger>
+    </Loggers>
+</Configuration>

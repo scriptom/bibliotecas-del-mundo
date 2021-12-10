@@ -1,18 +1,18 @@
 package org.bibliotecasmundo.server;
 
-import org.bibliotecasmundo.shared.application.query.LibraryQueryLanguage;
+import org.bibliotecasmundo.shared.application.query.LibraryLanguage;
 import org.bibliotecasmundo.server.application.SearchBookUseCase;
 import org.bibliotecasmundo.server.infrastructure.config.ServerConfigConstants;
 import org.bibliotecasmundo.server.infrastructure.persistence.inmemory.InMemoryBookRepository;
 import org.bibliotecasmundo.server.infrastructure.persistence.xml.XmlBookRepository;
 import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.SAXDeserializerHandler;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.XmlUnmarshaller;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.impl.LibrarySAXUnmarshaller;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.modelos.libro.XmlLibraryRoot;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.modelos.libro.deserializacion.LibrarySAXDeserializerHandler;
+import org.bibliotecasmundo.shared.infrastructure.tools.xml.XmlUnmarshaller;
+import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.LibrarySAXUnmarshaller;
+import org.bibliotecasmundo.server.infrastructure.persistence.xml.models.book.XmlLibraryRoot;
+import org.bibliotecasmundo.server.infrastructure.persistence.xml.models.book.deserialization.LibrarySAXDeserializerHandler;
 import org.bibliotecasmundo.server.infrastructure.rmi.LibraryServer;
 import org.bibliotecasmundo.server.infrastructure.service.LocalSearchBookSearchService;
-import org.bibliotecasmundo.shared.application.query.QueryLanguage;
+import org.bibliotecasmundo.shared.application.query.Language;
 import org.bibliotecasmundo.shared.domain.book.BookRepository;
 import org.bibliotecasmundo.shared.infrastructure.config.AppConfig;
 import org.slf4j.Logger;
@@ -41,8 +41,8 @@ public class LibraryApplication {
             AppConfig config = AppConfig.createFromPropertiesFile(SERVER_PROPERTIES_PATH);
             BookRepository bookRepository = buildBookRepository(config);
             SearchBookUseCase searchBookUseCase = new LocalSearchBookSearchService(bookRepository);
-            QueryLanguage queryLanguage = LibraryQueryLanguage.buildFromConfiguration(config);
-            LibraryServer libraryServer = new LibraryServer(searchBookUseCase, queryLanguage);
+            Language language = LibraryLanguage.buildFromConfiguration(config);
+            LibraryServer libraryServer = new LibraryServer(searchBookUseCase, language);
             LibraryApplication application = new LibraryApplication(libraryServer, config);
             application.start();
         } catch (IOException e) {
@@ -54,7 +54,8 @@ public class LibraryApplication {
         logger.info("Starting library server");
         logger.debug("Configuration: {}", appConfig);
         final int port = Integer.parseInt(appConfig.getConfigParam(ServerConfigConstants.APP_PORT, "5000"));
-        final String endpoint = appConfig.getConfigParam(ServerConfigConstants.APP_ENDPOINT, "BookService");
+        final String endpoint = appConfig.getConfigParam(ServerConfigConstants.APP_ENDPOINT, "search");
+        System.setProperty("java.rmi.server.hostname", appConfig.getConfigParam(ServerConfigConstants.HOST_ADDRESS));
         libraryServer.register(port, endpoint);
         logger.info("Server started on port {}", port);
     }

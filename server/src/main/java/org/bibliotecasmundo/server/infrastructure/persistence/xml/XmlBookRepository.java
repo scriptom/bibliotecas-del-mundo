@@ -1,9 +1,9 @@
 package org.bibliotecasmundo.server.infrastructure.persistence.xml;
 
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.XmlUnmarshaller;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.mapper.XmlUnmarshallingException;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.modelos.libro.XmlLibraryRoot;
-import org.bibliotecasmundo.server.infrastructure.persistence.xml.modelos.libro.XmlBook;
+import org.bibliotecasmundo.shared.infrastructure.tools.xml.XmlUnmarshaller;
+import org.bibliotecasmundo.shared.infrastructure.tools.xml.XmlUnmarshallingException;
+import org.bibliotecasmundo.server.infrastructure.persistence.xml.models.book.XmlLibraryRoot;
+import org.bibliotecasmundo.server.infrastructure.persistence.xml.models.book.XmlBook;
 import org.bibliotecasmundo.shared.domain.book.Book;
 import org.bibliotecasmundo.shared.domain.book.BookAuthor;
 import org.bibliotecasmundo.shared.domain.book.BookRepository;
@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -56,10 +57,10 @@ public class XmlBookRepository implements BookRepository {
     }
 
     private synchronized String readyXmlRepository() throws IOException {
-        InputStream is = new FileInputStream(filename);
+        InputStream is = getClass().getResourceAsStream(filename);
         StringBuilder sb = new StringBuilder();
         String line;
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
         while ((line = br.readLine()) != null) {
             sb.append(line);
         }

@@ -2,8 +2,204 @@
 <bibliotecas>
 	<bibliotecaB>
 		<book>
-			<titulo></titulo>
-			<autor></autor>
+			<libro>Ten Skies</libro>
+			<autor>Judith Palombi</autor>
+		</book>
+		<book>
+			<libro>Best Years of Our Lives, The</libro>
+			<autor>Tannie Schoffel</autor>
+		</book>
+		<book>
+			<libro>Caesar Must Die (Cesare deve morire)</libro>
+			<autor>Jewelle Illsley</autor>
+		</book>
+		<book>
+			<libro>Drained (O cheiro do Ralo)</libro>
+			<autor>Brad Toffler</autor>
+		</book>
+		<book>
+			<libro>Honey, I Shrunk the Kids</libro>
+			<autor>Nalani Cauthra</autor>
+		</book>
+		<book>
+			<libro>Little Shop of Horrors, The</libro>
+			<autor>Arabel Wilacot</autor>
+		</book>
+		<book>
+			<libro>Hour of the Pig, The</libro>
+			<autor>Joel McGrah</autor>
+		</book>
+		<book>
+			<libro>Liverpool</libro>
+			<autor>Teresa Clearley</autor>
+		</book>
+		<book>
+			<libro>Touch the Top of the World</libro>
+			<autor>Jimmy Staterfield</autor>
+		</book>
+		<book>
+			<libro>The Stranger's Return</libro>
+			<autor>Elsbeth Clitherow</autor>
+		</book>
+		<book>
+			<libro>Her</libro>
+			<autor>Taddeo Carbett</autor>
+		</book>
+		<book>
+			<libro>Russia's Toughest Prisons (National Geographic)</libro>
+			<autor>Devi Cowcha</autor>
+		</book>
+		<book>
+			<libro>Character (Karakter)</libro>
+			<autor>Jefferey Leades</autor>
+		</book>
+		<book>
+			<libro>Warning from Space (Uchûjin Tôkyô ni arawaru)</libro>
+			<autor>Warden Auchterlonie</autor>
+		</book>
+		<book>
+			<libro>Intruder, The</libro>
+			<autor>Fredi Divall</autor>
+		</book>
+		<book>
+			<libro>Havana</libro>
+			<autor>Giacomo Sinott</autor>
+		</book>
+		<book>
+			<libro>Detachment</libro>
+			<autor>Gregor Norway</autor>
+		</book>
+		<book>
+			<libro>They Came to Cordura</libro>
+			<autor>Norri Clappison</autor>
+		</book>
+		<book>
+			<libro>Bambi</libro>
+			<autor>Baird MacConnechie</autor>
+		</book>
+		<book>
+			<libro>Recruiter, The</libro>
+			<autor>Aldon Maes</autor>
+		</book>
+		<book>
+			<libro>Linewatch</libro>
+			<autor>Blondy Batchelder</autor>
+		</book>
+		<book>
+			<libro>Thieves (Voleurs, Les)</libro>
+			<autor>Erinna McGeffen</autor>
+		</book>
+		<book>
+			<libro>Ocean's Eleven</libro>
+			<autor>Sophie Chattoe</autor>
+		</book>
+		<book>
+			<libro>Murder, He Says</libro>
+			<autor>Tove Ortelt</autor>
+		</book>
+		<book>
+			<libro>Dirties, The</libro>
+			<autor>Hayyim Mordacai</autor>
+		</book>
+		<book>
+			<libro>She's Having a Baby</libro>
+			<autor>Joellen Ast</autor>
+		</book>
+		<book>
+			<libro>Police Academy 5: Assignment: Miami Beach</libro>
+			<autor>Cristin Sorton</autor>
+		</book>
+		<book>
+			<libro>2 Days in the Valley</libro>
+			<autor>Wit Andrieu</autor>
+		</book>
+		<book>
+			<libro>Tall Guy, The</libro>
+			<autor>Jeannie Blasgen</autor>
+		</book>
+		<book>
+			<libro>Charlie's Angels: Full Throttle</libro>
+			<autor>Kipper Cayford</autor>
+		</book>
+		<book>
+			<libro>Sometimes a Great Notion</libro>
+			<autor>Dominga Attwooll</autor>
+		</book>
+		<book>
+			<libro>Joker Is Wild, The (All the Way)</libro>
+			<autor>Ryun Love</autor>
+		</book>
+		<book>
+			<libro>Kiss Me Again</libro>
+			<autor>Enrika Attewell</autor>
+		</book>
+		<book>
+			<libro>Drop Dead Fred</libro>
+			<autor>Hyacinthe Willbourne</autor>
+		</book>
+		<book>
+			<libro>The Gruffalo's Child</libro>
+			<autor>Perl Inkle</autor>
+		</book>
+		<book>
+			<libro>Swamp Women</libro>
+			<autor>Merilyn Chatan</autor>
+		</book>
+		<book>
+			<libro>Skyjacked</libro>
+			<autor>Marcus Brisson</autor>
+		</book>
+		<book>
+			<libro>That Uncertain Feeling</libro>
+			<autor>Cornie Farrears</autor>
+		</book>
+		<book>
+			<libro>Unaccompanied Minors</libro>
+			<autor>Noam Hellen</autor>
+		</book>
+		<book>
+			<libro>Reprise</libro>
+			<autor>Dilly Sauven</autor>
+		</book>
+		<book>
+			<libro>Challenge to Lassie</libro>
+			<autor>Nellie Calderon</autor>
+		</book>
+		<book>
+			<libro>Zakochani</libro>
+			<autor>Mirilla Skillman</autor>
+		</book>
+		<book>
+			<libro>The Snow White Murder Case</libro>
+			<autor>Ardelis Cannavan</autor>
+		</book>
+		<book>
+			<libro>Journey for Margaret</libro>
+			<autor>Bobby Node</autor>
+		</book>
+		<book>
+			<libro>They Have Escaped (He ovat paenneet)</libro>
+			<autor>Osbert Cowderay</autor>
+		</book>
+		<book>
+			<libro>Orchestra Wives</libro>
+			<autor>Moria Tute</autor>
+		</book>
+		<book>
+			<libro>Angus</libro>
+			<autor>Jeremias Wasselin</autor>
+		</book>
+		<book>
+			<libro>Infestation</libro>
+			<autor>Dewain Aymes</autor>
+		</book>
+		<book>
+			<libro>Starbuck</libro>
+			<autor>Starlin Erley</autor>
+		</book>
+		<book>
+			<libro>Highlander: Endgame (Highlander IV)</libro>
+			<autor>Nani Hencke</autor>
 		</book>
 	</bibliotecaB>
 </bibliotecas>

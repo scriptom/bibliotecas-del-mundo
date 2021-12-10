@@ -1,7 +1,7 @@
 package org.bibliotecasmundo.shared.infrastructure.query;
 
 import org.bibliotecasmundo.shared.application.query.Query;
-import org.bibliotecasmundo.shared.application.query.QueryLanguage;
+import org.bibliotecasmundo.shared.application.query.Language;
 import org.bibliotecasmundo.shared.application.query.QueryParameter;
 import org.bibliotecasmundo.shared.application.query.UntranslatableQueryException;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class QueryFactoryTest {
     @Mock
-    QueryLanguage mockLanguage;
+    Language mockLanguage;
 
     @BeforeEach
     void prepareMock() {

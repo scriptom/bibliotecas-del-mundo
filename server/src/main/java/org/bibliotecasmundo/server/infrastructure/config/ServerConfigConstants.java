@@ -11,6 +11,9 @@ public final class ServerConfigConstants {
     public static final String LIBRARY_XML_ROOT_TAG = "repository.xml.root.tag";
     public static final String LIBRARY_XML_TITLE_TAG = "repository.xml.title.tag";
     public static final String LIBRARY_XML_AUTHOR_TAG = "repository.xml.author.tag";
+    public static final String RESPONSE_TOKEN = "response.token";
+    public static final String HOST_ADDRESS = "host.address";
+
     private ServerConfigConstants() {
     }
 }
