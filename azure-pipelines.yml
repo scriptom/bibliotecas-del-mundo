@@ -22,6 +22,7 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
+    flattenFolders: true
     Contents: '**/target'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
